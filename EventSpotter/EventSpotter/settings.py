@@ -77,13 +77,12 @@ WSGI_APPLICATION = 'EventSpotter.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'EventSpotter',
-        'USER': 'postgres',
-        'PASSWORD': 'H001216317oda',
-        'HOST':'localhost'
+        'NAME': 'Mahmood-Ibrahim/EventSpotter',
+        'USER': 'Mahmood-Ibrahim',
+        'PASSWORD': 'v2_42H9C_sqwJTcS5Cn5dEdEdzy3SqCU',
+        'HOST': 'db.bit.io'
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
