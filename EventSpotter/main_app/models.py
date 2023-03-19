@@ -1,5 +1,8 @@
 from django.db import models
 from django.urls import reverse
+# from django.db.models.signals import post_save
+# from django.dispatch import receiver
+# from .models import UserProfile
 #for Auth
 from django.contrib.auth.models import User
 # Create your models here.
@@ -22,6 +25,12 @@ class Events(models.Model):
     # def __str__(self):
     #     return self.name
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    def get_absolute_url(self):
-        return reverse('detail', kwargs={'event_id': self.id})
-
+    
+    # def get_absolute_url(self):
+    #     return reverse('detail', kwargs={'event_id': self.id})
+    
+class UserProfile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    phone_number = models.CharField(max_length=20)
+    address = models.CharField(max_length=100)
+    
