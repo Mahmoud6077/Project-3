@@ -18,3 +18,39 @@ footer.page-footer {
     display: flex;
     justify-content: space-between;
 }
+
+.intro {
+    /* width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(12,3,51,0.3), rgba(12,3,51,0.3));
+    position: relative;
+    padding: 0 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center; */
+    font-family:'tajawal', 'sans-serif';
+}
+
+.background-video {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+@media (max-aspect-ratio: 16/9) {
+    .background-video {
+        width: auto;
+        height: 50%;
+    }
+}
+
+.logo {
+    width: 150px;
+    margin-left: 20px;
+}
+
+
+
+
+
