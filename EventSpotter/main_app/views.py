@@ -40,3 +40,5 @@ def signup(request):
     return render(request, 'registration/signup.html', context)
 
 
+def profile(request):
+    return render(request, 'profile.html')
