@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,13 +6,53 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EventSpotter</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </head>
 <body>
     
-    <h1>Welcome to our base website</h1>
-    {% block content %}
-    
-    {% endblock %}  
+    <header class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper">
+
+                <ul>
+                    <li><a href="{% url 'home' %}" class="left brand-logo">&nbsp; &nbsp; EventSpotter </a></li>
+                </ul>
+
+                <ul class="right">
+                    <li><a href="{% url 'base' %}">About</a></li>
+                    {% if user.is_authenticated %}
+                        <li><a href="{% url 'home' %}">Events</a></li>
+                        <li><a href="{% url 'home' %}">View All Events</a></li>
+                        {% if user.is_staff %}
+                            <li><a href="{% url 'home' %}">Add New Event</a></li>
+                        {% endif %}
+                        <li><a href="{% url 'home' %}">Profile</a></li>
+                        <li><a href="{% url 'logout' %}">Log out</a></li>
+                        
+                        {% else %}
+                        <li><a href="{% url 'login' %}">Sign In</a></li>
+                        <li><a href="{% url 'signup' %}">Sign Up</a></li>
+
+                    {% endif %}
+                </ul>
+
+            </div>
+        </nav>
+    </header>
+
+
+    <main class="container">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer class="page-footer">
+        <div class="right">All Rights Reserved, &copy; EventSpotter &nbsp;</div>
+    </footer>
 
 </body>
 </html>

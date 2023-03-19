@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -77,10 +77,10 @@ WSGI_APPLICATION = 'EventSpotter.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'EventSpotter',
-        'USER': 'postgres',
-        'PASSWORD': 'H001216317oda',
-        'HOST':'localhost'
+        'NAME': 'Mahmood-Ibrahim/EventSpotter',
+        'USER': 'Mahmood-Ibrahim',
+        'PASSWORD': 'v2_42H9C_sqwJTcS5Cn5dEdEdzy3SqCU',
+        'HOST': 'db.bit.io'
     }
 }
 
@@ -120,6 +120,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
+
+
+# specify where succefully login should redirect
+LOGIN_REDIRECT_URL = '/'
+
+# specify where succefully logout should redirect
+LOGOUT_REDIRECT_URL = '/base'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
