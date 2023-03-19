@@ -26,8 +26,8 @@ def events_index(request):
     return render(request, 'events/index.html', {'events':events} )
 
 def events_detail(request, event_id):
-    events = Events.objects.get(id= event_id) 
-    return render(request, 'events/detail.html', {'events': events})
+    event = Events.objects.get(id= event_id) 
+    return render(request, 'events/detail.html', {'event': event})
 
 def signup(request):
     error_message =''
