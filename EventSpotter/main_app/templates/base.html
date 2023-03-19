@@ -23,19 +23,15 @@
                 </ul>
 
                 <ul class="right">
-                    <li><a href="{% url 'base' %}">About</a></li>
+                    <li><a href="/about">About</a></li>
                     {% if user.is_authenticated %}
-                        <li><a href="{% url 'home' %}">Events</a></li>
-                        <li><a href="{% url 'home' %}">View All Events</a></li>
-                        {% if user.is_staff %}
-                            <li><a href="{% url 'home' %}">Add New Event</a></li>
-                        {% endif %}
-                        <li><a href="{% url 'home' %}">Profile</a></li>
-                        <li><a href="{% url 'logout' %}">Log out</a></li>
-                        
-                        {% else %}
-                        <li><a href="{% url 'login' %}">Sign In</a></li>
-                        <li><a href="{% url 'signup' %}">Sign Up</a></li>
+                    <li><a href="/events">Events</a></li>                    
+                    {% if user.is_staff %}
+                    {% endif %}
+                    <li><a href="{% url 'logout' %}">Log out</a></li>
+                    {% else %}
+                    <li><a href="{% url 'login' %}">Sign In</a></li>
+                    <li><a href="{% url 'signup' %}">Sign Up</a></li>
 
                     {% endif %}
                 </ul>
