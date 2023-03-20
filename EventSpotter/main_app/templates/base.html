@@ -20,6 +20,7 @@
 
                 <ul>
                     <li><a href="{% url 'home' %}" class="left brand-logo"> <img class="logo" src="../static/images/logo.png/"> </a></li>
+                    <li><a href="{% url 'home' %}" class="left brand-logo">&nbsp; &nbsp; <img class="logo" src="../static/images/logo.png"></a></li>
                 </ul>
 
                 <ul class="right">
@@ -27,7 +28,7 @@
                     {% if user.is_authenticated %}
                         <li><a href="{% url 'events_index' %}">Events</a></li>    
                         {% if user.is_staff %}
-                            <li><a href="{% url 'home' %}">Add New Event</a></li>
+                            <li><a href="{% url 'event_create' %}">Add New Event</a></li>
                         {% endif %}
                         <li><a href="{% url 'profile' %}">Profile</a></li>
                         <li><a href="{% url 'logout' %}">Log out</a></li>
