@@ -23,10 +23,6 @@ def about(request):
 
 def events_index(request):
     # return HttpResponse('<h1>Hello /ᐠ｡‸｡ᐟ\ﾉ</h1>')
-<<<<<<< HEAD
-=======
-    # events = Events.objects.filter(user= request.user)
->>>>>>> 944e8dfa8f703fac115874c5e0256f27dd090961
     events = Events.objects.all()
     return render(request, 'events/index.html', {'events':events} )
 
