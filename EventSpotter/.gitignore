@@ -1,0 +1,17 @@
+# Django-related ignores
+*.log
+*.pot
+*.pyc
+__pycache__/
+local_settings.py
+db.sqlite3
+/migrations/
+
+# SQL-related ignores
+*.sql
+*.sql.gz
+*.sql.bz2
+*.sql.xz
+
+# Ignore environment variables
+.env 

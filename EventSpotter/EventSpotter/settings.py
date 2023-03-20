@@ -77,13 +77,12 @@ WSGI_APPLICATION = 'EventSpotter.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'Mahmood-Ibrahim/EventSpotter',
+        'NAME': 'Mahmood-Ibrahim/EventSpotter2',
         'USER': 'Mahmood-Ibrahim',
-        'PASSWORD': 'v2_42H9C_sqwJTcS5Cn5dEdEdzy3SqCU',
+        'PASSWORD': 'v2_42Hnn_22QzLYjESDUUWXxnehnKAvM',
         'HOST': 'db.bit.io'
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -122,11 +121,14 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 
+AUTH_USER_MODEL = 'main_app.CustomUser'
+
+
 # specify where succefully login should redirect
 LOGIN_REDIRECT_URL = '/'
 
 # specify where succefully logout should redirect
-LOGOUT_REDIRECT_URL = '/base'
+LOGOUT_REDIRECT_URL = '/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
