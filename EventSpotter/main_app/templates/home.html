@@ -7,7 +7,25 @@
     <a href="{% url 'home' %}"><button class="takeme">Take me there</button> </a>
     <video autoplay loop muted plays-inline class="background-video">
         <source src="static/images/Homepage-video.mp4" type="video/mp4">
+</div>
+{% for event in events %}
+<div class="card">
+    <div class="card-content">
+        <div class="flex-container">
+            <div>
+                <span class="card-title">{{ event.name }}</span>
+            </div>
+            {% load static %} 
+            <img width="100px" height="100px" src={% static event.image|cut:'main_app/static/' %} />
+        </div>
+    </div>
+</div>
+{% endfor %} 
+</div>
+
 
 <hr>
+
+{% endblock %}
 
 {% endblock %}

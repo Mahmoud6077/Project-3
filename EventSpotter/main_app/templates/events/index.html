@@ -2,7 +2,7 @@
 {% block content %}
 
 <h1>The Available Events</h1>
-<!-- hello -->
+
 {% for event in events %}
 <div class="card">
   <a href="{% url 'detail' event.id%}">
@@ -16,7 +16,7 @@
 
       <div>
         {% load static %} 
-        <img width="100px" height="100px" src={% static event.image|cut:'main_app/static/' %} />
+        <img class="eventImage" width="100px" height="100px" src={% static event.image|cut:'main_app/static/' %} />
       </div>
     </div>
   </div>
