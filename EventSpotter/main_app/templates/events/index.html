@@ -1,7 +1,7 @@
 {% extends 'base.html' %} 
 {% block content %}
 
-<h1>The Available Events</h1>
+<h1>Available Events</h1>
 
 {% for event in events %}
 <div class="card">
@@ -17,7 +17,7 @@
       <!-- {{ cat.image }} -->
       <div>
         {% load static %} 
-        <img width="100px" height="100px" src={% static event.image|cut:'main_app/static/' %} />
+        <img class="eventImage" width="100px" height="100px" src={% static event.image|cut:'main_app/static/' %} />
       </div>
     </div>
   </div>

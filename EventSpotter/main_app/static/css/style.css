@@ -50,6 +50,12 @@ footer.page-footer {
     margin-left: 20px;
 }
 
+.eventImage {
+    border-radius: 20px;
+    object-fit: cover;
+    width: 200px;
+    height: 300px;
+}
 
 
 
