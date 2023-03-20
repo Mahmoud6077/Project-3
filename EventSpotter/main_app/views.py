@@ -1,7 +1,10 @@
 from django.shortcuts import render, redirect
 # Add the following import
 from django.http import HttpResponse
-from django.contrib.auth.forms import UserCreationForm
+from django.views.generic.edit import CreateView , UpdateView, DeleteView
+from django.views.generic import ListView, DetailView
+from .models import Events
+from .forms import UserCreationForm
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -12,10 +15,18 @@ def home(request):
     # return HttpResponse('<h1>Hello /ᐠ｡‸｡ᐟ\ﾉ</h1>')
     return render(request, 'home.html')
 
-
-def base(request):
+def about(request):
     # return HttpResponse('<h1>Hello /ᐠ｡‸｡ᐟ\ﾉ</h1>')
-    return render(request, 'base.html')
+    return render(request, 'about.html')
+
+def events_index(request):
+    # return HttpResponse('<h1>Hello /ᐠ｡‸｡ᐟ\ﾉ</h1>')
+    events = Events.objects.filter(user= request.user)
+    return render(request, 'events/index.html', {'events':events} )
+
+def events_detail(request, event_id):
+    events = Events.objects.get(id= event_id) 
+    return render(request, 'events/detail.html', {'events': events})
 
 def signup(request):
     error_message =''

@@ -23,11 +23,9 @@
                 </ul>
 
                 <ul class="right">
-                    
-                    <li><a href="{% url 'base' %}">About</a></li>
+
                     {% if user.is_authenticated %}
-                        <li><a href="{% url 'home' %}">Events</a></li>
-                        <li><a href="{% url 'home' %}">View All Events</a></li>
+                        <li><a href="{% url 'events_index' %}">Events</a></li>    
                         {% if user.is_staff %}
                             <li><a href="{% url 'home' %}">Add New Event</a></li>
                         {% endif %}
