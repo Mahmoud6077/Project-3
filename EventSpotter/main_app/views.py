@@ -17,6 +17,11 @@ def base(request):
     # return HttpResponse('<h1>Hello /ᐠ｡‸｡ᐟ\ﾉ</h1>')
     return render(request, 'base.html')
 
+def events(request):
+    return render(request, 'events/Events.html')
+
+
+
 def signup(request):
     error_message =''
     if request.method == 'POST':

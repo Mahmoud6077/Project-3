@@ -8,8 +8,9 @@ urlpatterns = [
     # In this case '' represents the root route
     path('', views.home, name='home'),
     path('base', views.base, name='base'),
+    path('events', views.events, name='Events'),
     # path('about/', views.about, name='about'),
-    path('accounts/signup', views.signup, name='signup')
-
+    path('accounts/signup', views.signup, name='signup'),
+    
 
 ]
