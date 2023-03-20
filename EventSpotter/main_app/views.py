@@ -21,10 +21,6 @@ def about(request):
 
 def events_index(request):
     # return HttpResponse('<h1>Hello /ᐠ｡‸｡ᐟ\ﾉ</h1>')
-<<<<<<< HEAD
-=======
-    # events = Events.objects.filter(user= request.user)
->>>>>>> 944e8dfa8f703fac115874c5e0256f27dd090961
     events = Events.objects.all()
     return render(request, 'events/index.html', {'events':events} )
 
@@ -57,3 +53,14 @@ def signup(request):
 
 def profile(request):
     return render(request, 'profile.html')
+
+
+class EventCreate(LoginRequiredMixin, CreateView):
+    model = Events
+    fields = '__all__'
+    # success_url = '/cats/'
+    def form_valid(self, form):
+        # self.request.user is the logged user
+        form.instance.user = self.request.user
+        # Allows CreateView form_valid method to do its normal work
+        return super().form_valid(form)
