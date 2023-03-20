@@ -128,7 +128,7 @@ AUTH_USER_MODEL = 'main_app.CustomUser'
 LOGIN_REDIRECT_URL = '/'
 
 # specify where succefully logout should redirect
-LOGOUT_REDIRECT_URL = '/base'
+LOGOUT_REDIRECT_URL = '/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field

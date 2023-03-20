@@ -23,9 +23,10 @@
                 </ul>
 
                 <ul class="right">
+                    <li><div>Welcome, {{ user.get_username }}</div></li>
 
                     {% if user.is_authenticated %}
-                        <li><a href="{% url 'events_index' %}">Events</a></li>    
+                        <li><a href="{% url 'index' %}">Events</a></li>    
                         {% if user.is_staff %}
                             <li><a href="{% url 'home' %}">Add New Event</a></li>
                         {% endif %}

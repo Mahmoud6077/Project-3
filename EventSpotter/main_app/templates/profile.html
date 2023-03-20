@@ -3,11 +3,23 @@
 {% block content %}
 
 <div class="intro">
-    <h1>Profile</h1>
+
+    <div class="profile-row">
+        <h1>Profile</h1>
+
+        <div class="profile-img">
+        </div>
+    </div>
+
+
 </div>
+<div>Usermame: {{user.username}}</div>
+<div>Email:{{user.email}}</div>
+<div> PhoneNumber:{{ user.phone}}</div>
 
 
-{% comment %} <h1>Welcome to our Home Page</h1>  {% endcomment %}
+
 <hr>
+<a href="{% url 'change_password' %}"> Change Password</a>
 
 {% endblock %}
