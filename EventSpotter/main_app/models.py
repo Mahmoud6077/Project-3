@@ -37,8 +37,8 @@ class Events(models.Model):
     #     return self.name
     # user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     
-    # def get_absolute_url(self):
-    #     return reverse('detail', kwargs={'event_id': self.id})
+    def get_absolute_url(self):
+        return reverse('detail', kwargs={'event_id': self.id})
     
 
 class Ticket(models.Model):
