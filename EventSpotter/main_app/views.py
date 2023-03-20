@@ -4,7 +4,7 @@ from django.http import HttpResponse
 from django.views.generic.edit import CreateView , UpdateView, DeleteView
 from django.views.generic import ListView, DetailView
 from .models import Events
-from django.contrib.auth.forms import UserCreationForm
+from .forms import UserCreationForm
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -14,7 +14,6 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 def home(request):
     # return HttpResponse('<h1>Hello /ᐠ｡‸｡ᐟ\ﾉ</h1>')
     return render(request, 'home.html')
-
 
 def about(request):
     # return HttpResponse('<h1>Hello /ᐠ｡‸｡ᐟ\ﾉ</h1>')
