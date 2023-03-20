@@ -21,7 +21,7 @@ def about(request):
 
 def events_index(request):
     # return HttpResponse('<h1>Hello /ᐠ｡‸｡ᐟ\ﾉ</h1>')
-    events = Events.objects.filter(user= request.user)
+    events = Events.objects.all()
     return render(request, 'events/index.html', {'events':events} )
 
 def events_detail(request, event_id):
@@ -38,7 +38,7 @@ def signup(request):
             user = form.save()
             #login the user automaticlly once they signed up 
             login(request, user)
-            return redirect('index')
+            return redirect('home')
         
         else:
             error_message = 'Invalid: Please Try Again'
