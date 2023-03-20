@@ -1,7 +1,12 @@
 from django.db import models
 from django.urls import reverse
+from django.contrib.auth.models import AbstractUser
+
+# from django.db.models.signals import post_save
+# from django.dispatch import receiver
+
 #for Auth
-from django.contrib.auth.models import User
+# from django.contrib.auth.models import User
 # Create your models here.
 LOCATIONS = (
     ('m', 'Manama'),
@@ -12,6 +17,15 @@ LOCATIONS = (
     ('i', 'Isa-Town')
 )
 
+class CustomUser(AbstractUser, models.Model):
+    phone = models.IntegerField(blank=False)
+    email = models.EmailField(max_length=100)
+    # tickets = models.ForeignKey(Events, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.username
+    
+
 class Events(models.Model):
     name = models.CharField(max_length = 150)
     location = models.CharField(max_length = 1, choices=LOCATIONS, default=LOCATIONS[0][0])
@@ -21,13 +35,13 @@ class Events(models.Model):
     image = models.ImageField(upload_to ='main_app/static/images/', default="")
     # def __str__(self):
     #     return self.name
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    # user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     
     # def get_absolute_url(self):
     #     return reverse('detail', kwargs={'event_id': self.id})
     
-class UserProfile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    phone_number = models.CharField(max_length=20)
-    address = models.CharField(max_length=100)
-    
+
+class Ticket(models.Model):
+    User = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    event = models.ForeignKey(Events, on_delete=models.CASCADE)
+    ticket_number = models.IntegerField()

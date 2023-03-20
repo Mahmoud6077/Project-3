@@ -23,7 +23,7 @@
                 </ul>
 
                 <ul class="right">
-                    
+
                     {% if user.is_authenticated %}
                         <li><a href="{% url 'events_index' %}">Events</a></li>    
                         {% if user.is_staff %}
