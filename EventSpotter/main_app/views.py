@@ -30,6 +30,9 @@ def events_detail(request, event_id):
     event = Events.objects.get(id= event_id) 
     return render(request, 'events/detail.html', {'event': event})
 
+def events(request):
+    return render(request, 'events/Events.html')
+
 def signup(request):
     error_message =''
     if request.method == 'POST':
@@ -59,7 +62,7 @@ def profile(request):
 
 class EventCreate(LoginRequiredMixin, CreateView):
     model = Events
-    fields = ['name', 'location', 'description', 'date', 'time', 'image']
+    fields = ['name', 'location', 'description', 'date', 'time', 'image']   
     # success_url = '/home'
     def form_valid(self, form):
         # self.request.user is the logged user

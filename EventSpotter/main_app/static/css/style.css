@@ -1,17 +1,75 @@
 body {
-    background-color: rgb(200, 192, 192);
+    background-color: rgb(255, 254, 254);
     display: flex;
     min-height: 100vh;
     flex-direction: column;
 }
+.dark-mode {
+    /* background-color: black; */
+    /* color: white; */
+    border-radius: 50px;
+}
+.dark{
+    color: #b19c29;
 
+    }
+.Gallery{
+    border: #630ffd;
+    width: 500px;
+    height: 50px;
+}
+
+h1{
+    font-family : 'Roboto', 'sans-serif';
+   color:#3DDF61 ; 
+    margin-top: 190px;
+    /* margin-left: -50px; */
+}
+/* .right{
+    
+} */
+
+
+.takeme {
+color:#5E17EB;
+font-family: 'Roboto';
+font-size: 25px;
+/* margin: 4px 2px; */
+cursor: pointer;
+border-radius: 16px;
+
+}
+.takeme:hover {
+    background-color: #4CAF50;
+}
+
+
+nav{
+    background-color: rgb(2, 2, 2);
+}
+nav ul a {
+   font-family : 'Roboto', 'sans-serif';
+   color: #3DDF61;
+   font: Tajawal;
+}
 main {
     flex: 1 0 auto;
 }
 
+
+
+
 footer.page-footer {
     padding-top: 0;
-    text-align: right;
+    text-align: center;    
+    background-color:#050505;
+    
+    font: Tajawal;
+}
+
+.right {
+    text-align: center;
+    
 }
 
 .flex-container {
@@ -46,8 +104,22 @@ footer.page-footer {
 }
 
 .logo {
-    width: 150px;
-    margin-left: 20px;
+    
+    width: 149px;
+    margin-right: 100px;
+    margin-top: -29px;
+
+}
+.btn_nav{
+    border-radius: 50px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    font-size: 15px;
+    background-color: #4e00eb;
+    color: aliceblue;
+}
+.btn_nav:hover {
+    background-color: #4CAF50;
 }
 
 .eventImage {
@@ -56,13 +128,19 @@ footer.page-footer {
     width: 200px;
     height: 300px;
 }
-
 .navbar-fixed {
     background-color: rgb(57, 7, 103);
       
 }
 
+.right2{
+    text-align: center;
 
+}
+.page-footer{
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
 .profile-img{
     background-image: url('https://t3.ftcdn.net/jpg/03/46/83/96/240_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg');
     background-size: cover;  
@@ -80,5 +158,10 @@ footer.page-footer {
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-between;
+}
+.image_grid img{
+   height: 320px;
+   width: 320px;
+   border-radius: 15px;
 }
 
