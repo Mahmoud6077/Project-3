@@ -1,6 +1,6 @@
 {% extends 'base.html' %} 
 {% block content %}
-
+{% load static %}
 <h1>The Available Events</h1>
 
 {% for event in events %}
@@ -16,7 +16,8 @@
 
       <div>
         {% load static %} 
-        <img class="eventImage" width="100px" height="100px" src={% static event.image|cut:'main_app/static/' %} />
+        <img src="{% static 'images/event_details.jpg'%}" width="250px" height="250px" src={% static event.image|cut:'main_app/static/' %} />
+              
       </div>
     </div>
   </div>
