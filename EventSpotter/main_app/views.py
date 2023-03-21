@@ -59,8 +59,8 @@ def profile(request):
 
 class EventCreate(LoginRequiredMixin, CreateView):
     model = Events
-    fields = '__all__'
-    # success_url = '/cats/'
+    fields = ['name', 'location', 'description', 'date', 'time', 'image']
+    # success_url = '/home'
     def form_valid(self, form):
         # self.request.user is the logged user
         form.instance.user = self.request.user
