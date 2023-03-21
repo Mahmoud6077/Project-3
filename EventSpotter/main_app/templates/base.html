@@ -17,8 +17,6 @@
 
 </head>
 
-<body>
-    
     <header class="navbar-fixed">
         <nav>
             <div class="nav-wrapper">
@@ -34,35 +32,26 @@
                     {% if user.is_authenticated %}
                         <li><a href="{% url 'index' %}"><button class="btn_nav">Events</button></a></li>    
                         {% if user.is_staff %}
-                            <li><a href="{% url 'index' %}"><button class="btn_nav">Add New Event</button></a></li>
+                            <li><a href="{% url 'home' %}">Add New Event</a></li>
                         {% endif %}
                         <li><a href="{% url 'profile' %}"><button class="btn_nav">Profile</button></a></li>
                         <li><a href="{% url 'logout' %}"><button class="btn_nav">Log out</button></a></li>
                         
                         {% else %}
-                        <button class="dark-mode" id="dk"> Dard Mode</button>
-                       
-                        
-                        
                        
                         <li><a href="{% url 'login' %}"><button class="btn_nav">Sign In</button></a></li>
                         <li><a href="{% url 'signup' %}"><button class="btn_nav">Sign Up</button></a></li>
 
                     {% endif %}
+                    <button class="dark-mode" id="mode_btn"> <img src="../static/images/idea (1).png" width="20px"> </button>
                 </ul>
 
             </div>
         </nav>
     </header>
 
-
-    <main class="container">
-        <div class="Gallery">
-      
-        </div>
-      
-
-
+     
+    
         {% block content %}
         {% endblock %}
     </main>
@@ -71,7 +60,12 @@
         <div class="right2">All Rights Reserved, &copy; EventSpotter &nbsp;</div>
     </footer>
 
-    
+    <script>
+        var mode_btn = document.getElementById("mode_btn")
+        mode_btn.onclick = function(){
+           document.body.classlist.toggle('dark')}
+         console.log(function())
+    </script>
 
 </body>
 </html>

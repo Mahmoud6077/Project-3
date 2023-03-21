@@ -9,6 +9,10 @@ body {
     /* color: white; */
     border-radius: 50px;
 }
+.dark{
+    color: #b19c29;
+
+    }
 .Gallery{
     border: #630ffd;
     width: 500px;
@@ -19,6 +23,7 @@ h1{
     font-family : 'Roboto', 'sans-serif';
    color:#3DDF61 ; 
     margin-top: 190px;
+    /* margin-left: -50px; */
 }
 /* .right{
     
@@ -33,6 +38,9 @@ font-size: 25px;
 cursor: pointer;
 border-radius: 16px;
 
+}
+.takeme:hover {
+    background-color: #4CAF50;
 }
 
 
@@ -107,9 +115,18 @@ footer.page-footer {
     transition-duration: 0.4s;
     cursor: pointer;
     font-size: 15px;
+    background-color: #4e00eb;
+    color: aliceblue;
 }
 .btn_nav:hover {
     background-color: #4CAF50;
+}
+
+.eventImage {
+    border-radius: 20px;
+    object-fit: cover;
+    width: 200px;
+    height: 300px;
 }
 .navbar-fixed {
     background-color: rgb(57, 7, 103);
@@ -118,6 +135,11 @@ footer.page-footer {
 
 .right2{
     text-align: center;
+
+}
+.page-footer{
+    margin-bottom: 0;
+    padding-bottom: 0;
 }
 .profile-img{
     background-image: url('https://t3.ftcdn.net/jpg/03/46/83/96/240_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg');
@@ -136,5 +158,10 @@ footer.page-footer {
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-between;
+}
+.image_grid img{
+   height: 320px;
+   width: 320px;
+   border-radius: 15px;
 }
 
