@@ -4,6 +4,17 @@ body {
     min-height: 100vh;
     flex-direction: column;
 }
+.dark-mode {
+    /* background-color: black; */
+    /* color: white; */
+    border-radius: 50px;
+}
+.Gallery{
+    border: #630ffd;
+    width: 500px;
+    height: 50px;
+}
+
 h1{
     font-family : 'Roboto', 'sans-serif';
    color:#3DDF61 ; 
@@ -88,16 +99,26 @@ footer.page-footer {
     
     width: 149px;
     margin-right: 100px;
-    margin-top: -15px;
+    margin-top: -29px;
 
 }
-
+.btn_nav{
+    border-radius: 50px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    font-size: 15px;
+}
+.btn_nav:hover {
+    background-color: #4CAF50;
+}
 .navbar-fixed {
     background-color: rgb(57, 7, 103);
       
 }
 
-
+.right2{
+    text-align: center;
+}
 .profile-img{
     background-image: url('https://t3.ftcdn.net/jpg/03/46/83/96/240_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg');
     background-size: cover;  

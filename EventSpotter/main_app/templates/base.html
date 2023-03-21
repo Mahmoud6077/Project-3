@@ -30,18 +30,23 @@
 
                 <ul class="right">
                     <li><div>Welcome, {{ user.get_username }}</div></li>
-
+                    
                     {% if user.is_authenticated %}
-                        <li><a href="{% url 'index' %}">Events</a></li>    
+                        <li><a href="{% url 'index' %}"><button class="btn_nav">Events</button></a></li>    
                         {% if user.is_staff %}
-                            <li><a href="{% url 'index' %}">Add New Event</a></li>
+                            <li><a href="{% url 'index' %}"><button class="btn_nav">Add New Event</button></a></li>
                         {% endif %}
-                        <li><a href="{% url 'profile' %}">Profile</a></li>
-                        <li><a href="{% url 'logout' %}">Log out</a></li>
+                        <li><a href="{% url 'profile' %}"><button class="btn_nav">Profile</button></a></li>
+                        <li><a href="{% url 'logout' %}"><button class="btn_nav">Log out</button></a></li>
                         
                         {% else %}
-                        <li><a href="{% url 'login' %}">Sign In</a></li>
-                        <li><a href="{% url 'signup' %}">Sign Up</a></li>
+                        <button class="dark-mode" id="dk"> Dard Mode</button>
+                       
+                        
+                        
+                       
+                        <li><a href="{% url 'login' %}"><button class="btn_nav">Sign In</button></a></li>
+                        <li><a href="{% url 'signup' %}"><button class="btn_nav">Sign Up</button></a></li>
 
                     {% endif %}
                 </ul>
@@ -52,13 +57,21 @@
 
 
     <main class="container">
+        <div class="Gallery">
+      
+        </div>
+      
+
+
         {% block content %}
         {% endblock %}
     </main>
 
     <footer class="page-footer">
-        <div class="right">All Rights Reserved, &copy; EventSpotter &nbsp;</div>
+        <div class="right2">All Rights Reserved, &copy; EventSpotter &nbsp;</div>
     </footer>
+
+    
 
 </body>
 </html>
