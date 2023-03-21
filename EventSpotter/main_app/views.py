@@ -21,17 +21,16 @@ def about(request):
 
 def events_index(request):
     # return HttpResponse('<h1>Hello /ᐠ｡‸｡ᐟ\ﾉ</h1>')
-    events = Events.objects.filter(user= request.user)
+
+    events = Events.objects.all()
     return render(request, 'events/index.html', {'events':events} )
 
 def events_detail(request, event_id):
-    events = Events.objects.get(id= event_id) 
-    return render(request, 'events/detail.html', {'events': events})
+    event = Events.objects.get(id= event_id) 
+    return render(request, 'events/detail.html', {'event': event})
 
 def events(request):
     return render(request, 'events/Events.html')
-
-
 
 def signup(request):
     error_message =''
@@ -43,7 +42,7 @@ def signup(request):
             user = form.save()
             #login the user automaticlly once they signed up 
             login(request, user)
-            return redirect('index')
+            return redirect('home')
         
         else:
             error_message = 'Invalid: Please Try Again'

@@ -2,27 +2,25 @@
 {% block content %}
 
 <h1>The Available Events</h1>
-
+<!-- hello -->
 {% for event in events %}
 <div class="card">
+  <a href="{% url 'detail' event.id%}">
   <div class="card-content">
     <div class="flex-container">
-      <div>
         <span class="card-title">{{ event.name }}</span>
         <p>Description: {{ event.description}}</p>
         <p>Date: {{ event.date}}</p>
         <p>Time: {{ event.time }}</p>
-        <p>Location: {{ event.location }}</p>
+        <p>Location: {{ event.get_location_display }}</p>
 
-      <!-- {{ cat.image }} -->
       <div>
         {% load static %} 
         <img width="100px" height="100px" src={% static event.image|cut:'main_app/static/' %} />
       </div>
     </div>
   </div>
-    </a>
+</a>
 </div>
-
 {% endfor %} 
 {% endblock %}
