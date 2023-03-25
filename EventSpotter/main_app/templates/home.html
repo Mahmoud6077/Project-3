@@ -1,36 +1,86 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<style>
+    .card {
+        background-color: rgb(255, 255, 255);
+        width: 21.25em;
+        margin: 30px;
+        box-shadow: 0 5px 25px rgba(1, 1, 1, 15%);
+        padding: 25px;
+        transition: 0.7s ease;
+        height: 450px;
+        
+    
+    }
+    .card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 30px rgba(1, 1, 1, 15%);
+    }
+    .c
+    {
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .con
+    {
+        display: block;
 
-<div class="intro">
-    <h1>Find the nearest </br>events in your </br>area</h1>
+    }
+</style>
+<section class="hd" style="width: 100%;
+min-height: 100vh;
+display: flex;
+align-items: center;
+background: url(images/3.png) no-repeat;
+background-size: cover;
+background-position: center;
+background-attachment: fixed;">
+    <div class="data" style="padding: 30px;"> <h2 style="color: white ; margin: 0; font-size: 3em; font-weight: 800;">Find the nearest </br>events in your </br>area</h2>
 
-    <a href="{% url 'index' %}"><button class="takeme">Take me there</button> </a>
-    <video autoplay loop muted plays-inline class="background-video">
+    <a href="{% url 'index' %}"><button class="takeme" style="margin-top: 15px;">Take me there</button> </a></div>
+   
+    <video autoplay loop muted plays-inline class="2" style="  position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;">
         <source src="static/images/Homepage-video.mp4" type="video/mp4">
-</div>
+    </section>
+    <section class ='c'style="background-color: white;">
 {% for event in events %}
-<div class="card">
-    <div class="card-content">
-        <div class="flex-container">
-            <div>
-                <span class="card-title">{{ event.name }}</span>
-            </div>
-            {% load static %} 
-            <img width="100px" height="100px" src={% static event.image|cut:'main_app/static/' %} />
-        </div>
-    </div>
+{% load static %}
+<div class="con">
+<div class="card" >
+    {% load static %} 
+    <img  style="height: 400px;  width: 20.25em;" src={% static event.image|cut:'main_app/static/' %} />
+</div>
+<span class="card-title" style="text-align: center;">{{ event.name }}</span>
 </div>
 {% endfor %} 
 </div>
 
 
-<div class="image_grid">
+{% comment %} <div class="image_grid">
     <img src="../static/images/Kashta_in_the_Dunes_hero.jpg" alt="event 1">
     <h1>Bahrain Events</h1>
-    </div>
+</div> {% endcomment %}
 
+<div class="pagination">
+    {% if page_obj.has_previous %}
+        <a href="/?page={{ page_obj.previous_page_number }}">previous</a>
+    {% endif %}
 
+    <span class="current-page">{{ page_obj.number }}</span>
+
+    {% if page_obj.has_next %}
+        <a href="/?page={{ page_obj.next_page_number }}">next</a>
+    {% endif %}
+</div>
+</section>
 {% comment %} <h1>Welcome to our Home Page</h1>  {% endcomment %}
 
 

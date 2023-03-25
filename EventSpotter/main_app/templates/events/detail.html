@@ -1,19 +1,57 @@
 {% extends 'base.html' %}
 {% block content %}
-
-<h1>Events Details</h1>
+<style>
+  main{
+    height: 100vh;
+}
+.card-content{
+  background-color: lightgray;
+}
+.card-action{
+  background-color: chocolate;
+}
+p{
+  font-weight: bold;
+}
+.card-title{
+  font-weight: bolder;
+  color:red;
+}
+body{
+  background-color: beige;
+}
+</style>
+<h1 style="text-align: center;">Events Details</h1>
 
 <div class="row">
   <div class="col s6">
     <div class="card">
       <div class="card-content">
+        <div>
+          {% load static %} 
+          <img src="{% static event.image|cut:'main_app/static/' %}" width="280px" height="350px" />
+                
+        </div>
         <span class="card-title">{{ event.name }}</span>
         <p>Description: {{ event.description}}</p>
         <p>Date: {{ event.date}}</p>
         <p>Time: {{ event.time }}</p>
         <p>Location: {{ event.get_location_display }}</p>
       </div>
+      <div class="card-action">
+        {% if user.is_staff %}
+          <a style="color:darkorange" href="{% url 'events_update' event.id %}">Edit Event</a>
+          <a style="color: red;" href="{% url 'events_delete' event.id %}">Delete Event</a>
+          {% endif %}
+        <a href="{% url 'events_booking' event.id %}"><button>Buy Tickets</button></a>
+        
+      </div>
     </div>
   </div>
+</div>
+<div>
+
+
+
 </div>
 {% endblock %}

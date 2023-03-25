@@ -1,6 +1,26 @@
 {% extends 'base.html' %}
 {% block content %}
 
+<style>
+    input{
+     width: 200px;
+     border-radius: 15px;
+    }
+    main
+    {
+     height: 100vh;
+    }
+    label
+    {
+     color: black;
+     font-size: 1.5em;
+     font-weight: bold;
+    }
+    body{
+     background-color:grey;
+    }
+ </style>
+ 
 {% if error_message %}
 <p class="red-text">{{ error_message }}</p>
 {% endif %}

@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EventSpotter</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    {% comment %} <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet"> {% endcomment %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
@@ -15,7 +15,8 @@
 
 
 </head>
-
+<body>
+    
     <header class="navbar-fixed">
         <nav>
             <div class="nav-wrapper">
@@ -26,6 +27,7 @@
 
                 <ul class="right">
                     <li><div>Welcome, {{ user.get_username }}</div></li>
+                    <li><a href="{% url 'about' %}"><button class="btn_nav">FAQ</button></a></li>
                     
                     {% if user.is_authenticated %}
                         <li><a href="{% url 'index' %}"><button class="btn_nav">Events</button></a></li>    
@@ -49,12 +51,12 @@
     </header>
 
     
-    
+    <main>
         {% block content %}
         {% endblock %}
     </main>
 
-    <footer class="page-footer">
+    <footer class="page-footer" >
         <div class="right2">All Rights Reserved, &copy; EventSpotter &nbsp;</div>
     </footer>
 

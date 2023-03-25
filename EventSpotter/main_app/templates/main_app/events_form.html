@@ -1,7 +1,22 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Adding an Evnet</h1>
+<style>
+
+    main{
+        height: 100vh;
+    }
+    label
+    {
+     color: black;
+     font-size: 1.5em;
+     font-weight: bold;
+    }
+    body{
+        background-color:grey;
+       }
+</style>
+<h1 style="text-align: center;">Add an Event</h1>
     <form action="" method="POST" enctype='multipart/form-data'>
         {% csrf_token %}
         <table>

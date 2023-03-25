@@ -1,0 +1,26 @@
+{% extends 'base.html' %} 
+{% block content %}
+<style>
+  main{
+    height: 100vh;
+}
+</style>
+{% load static %}
+<h1> &nbsp; Book Tickets for {{ events.name }} on {{events.date}} {% comment %}<img src="{{ STATIC_URL }}images/{{ events.image }}" > {% endcomment %}
+</h1>
+
+<form method="post">
+  {% csrf_token %}
+  &nbsp; &nbsp; &nbsp;<input type="hidden" name="event_id" value="{{ event.id }}">
+
+  &nbsp;<label for="ticket_count" style="font-size: 30px;">Number of Tickets:</label>
+  &nbsp; &nbsp;<input type="number" id="ticket_count" name="ticket_count" min="1" max= required>
+  {% comment %} <a href="events/booking_success.html"><input type="submit" value="Book Tickets"> </a> {% endcomment %}
+  {% comment %} <a href="/main_app/templates/events/booking_success.html"><button class="takeme">Book Tickets</button> </a> {% endcomment %}
+  <br><br>
+  
+</form>
+&nbsp; &nbsp; <a href="{% url 'booking_success' events.id %}"><button class="takeme">Book Tickets</button> </a>
+
+
+{% endblock %}

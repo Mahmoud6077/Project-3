@@ -1,27 +1,88 @@
 {% extends 'base.html' %} 
 {% block content %}
 {% load static %}
-<h1>The Available Events</h1>
 
-{% for event in events %}
+<style>
+  main
+  {
+    height: 100vh;
+  }
+  .card {
+    background-color: rgb(255, 255, 255);
+    width: 31.25em;
+    margin: 30px;
+    box-shadow: 0 5px 25px rgba(1, 1, 1, 15%);
+    padding: 25px;
+    transition: 0.7s ease;
+    height: 450px;
+    display: block;
+    
+
+}
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 30px rgba(1, 1, 1, 15%);
+}
+.card-content
+{
+  display: block;
+}
+.card-title{
+  color:midnightblue;
+  font-weight: bolder;
+}
+body{
+  background-color: beige;
+}
+h1{
+  text-align: center;
+}
+</style>
+
+<h1>The Available Events</h1>
+<section style=" display: flex;
+justify-content: center;
+flex-direction: row;
+flex-wrap: wrap;">
+{% for event in page %}
+
 <div class="card">
   <a href="{% url 'detail' event.id%}">
   <div class="card-content">
     <div class="flex-container">
         <span class="card-title">{{ event.name }}</span>
-        <p>Description: {{ event.description}}</p>
-        <p>Date: {{ event.date}}</p>
-        <p>Time: {{ event.time }}</p>
-        <p>Location: {{ event.get_location_display }}</p>
+        {% comment %} <p>Description: {{ event.description}}</p> {% endcomment %}
+        {% comment %} <p>Date: {{ event.date}}</p> {% endcomment %}
+        {% comment %} <p>Time: {{ event.time }}</p> {% endcomment %}
+        {% comment %} <p>Location: {{ event.get_location_display }}</p> {% endcomment %}
 
       <div>
         {% load static %} 
-        <img src="{% static 'images/event_details.jpg'%}" width="250px" height="250px" src={% static event.image|cut:'main_app/static/' %} />
+        <img width="280px" height="350px" src={% static event.image|cut:'main_app/static/' %} />
               
       </div>
     </div>
   </div>
 </a>
 </div>
-{% endfor %} 
+{% endfor %}
+</section>
+<div class="pagination"style="align-self: center;">
+  <span class="step-links">
+      {% if page.has_previous %}
+          <a href="?page=1">&laquo; first</a>
+          <a href="?page={{ page.previous_page_number }}">previous</a>
+      {% endif %}
+
+      <span class="current-page" >
+          Page {{ page.number }} of {{ page.paginator.num_pages }}.
+      </span>
+
+      {% if page.has_next %}
+          <a href="?page={{ page.next_page_number }}">next</a>
+          <a href="?page={{ page.paginator.num_pages }}">last &raquo;</a>
+      {% endif %}
+  </span>
+</div>
+
 {% endblock %}
