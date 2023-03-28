@@ -12,7 +12,7 @@ Manage your booking history and view upcoming events
 
 Installation
 
-Clone the repository: git clone https://github.com/yourusername/EventSpotter.git
+Clone the repository: git clone https://github.com/Mahmoud6077/Project-3
 Install the required packages: pip install -r requirements.txt
 Set up the PostgreSQL database using PGAdmin4
 Run database migrations: python manage.py migrate
@@ -37,3 +37,8 @@ Improved search functionality using machine learning and natural language proces
 Contributors
 
 Mahmood Ibrahim (mebrahim6077@email.com)
+
+
+ERD:
+
+<img src="/EventSpotter/main_app/static/images/ERD.JPG">
