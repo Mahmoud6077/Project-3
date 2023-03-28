@@ -7,10 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EventSpotter</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
+    {% comment %} <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet"> {% endcomment %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+
+
 </head>
 <body>
     
@@ -19,40 +22,50 @@
             <div class="nav-wrapper">
 
                 <ul>
-                    <li><a href="{% url 'home' %}" class="left brand-logo">&nbsp; &nbsp; EventSpotter </a></li>
+                    <li><a href="{% url 'home' %}" class="left brand-logo"> <img class="logo" src="../static/images/logo.png/"> </a></li>
                 </ul>
 
                 <ul class="right">
-                    <li><a href="{% url 'base' %}">About</a></li>
+                    <li><div>Welcome, {{ user.get_username }}</div></li>
+                    <li><a href="{% url 'about' %}"><button class="btn_nav">FAQ</button></a></li>
+                    
                     {% if user.is_authenticated %}
-                        <li><a href="{% url 'home' %}">Events</a></li>
-                        <li><a href="{% url 'home' %}">View All Events</a></li>
+                        <li><a href="{% url 'index' %}"><button class="btn_nav">Events</button></a></li>    
                         {% if user.is_staff %}
-                            <li><a href="{% url 'home' %}">Add New Event</a></li>
+                            <li><a href="{% url 'events_create' %}">Add New Event</a></li>
                         {% endif %}
-                        <li><a href="{% url 'home' %}">Profile</a></li>
-                        <li><a href="{% url 'logout' %}">Log out</a></li>
+                        <li><a href="{% url 'profile' %}"><button class="btn_nav">Profile</button></a></li>
+                        <li><a href="{% url 'logout' %}"><button class="btn_nav">Log out</button></a></li>
                         
                         {% else %}
-                        <li><a href="{% url 'login' %}">Sign In</a></li>
-                        <li><a href="{% url 'signup' %}">Sign Up</a></li>
+            
+                        <li><a href="{% url 'login' %}"><button class="btn_nav">Sign In</button></a></li>
+                        <li><a href="{% url 'signup' %}"><button class="btn_nav">Sign Up</button></a></li>
 
                     {% endif %}
+                    <button class="dark-mode" id="mode_btn"> <img src="../static/images/idea (1).png" width="20px"> </button>
                 </ul>
 
             </div>
         </nav>
     </header>
 
-
-    <main class="container">
+    
+    <main>
         {% block content %}
         {% endblock %}
     </main>
 
-    <footer class="page-footer">
-        <div class="right">All Rights Reserved, &copy; EventSpotter &nbsp;</div>
+    <footer class="page-footer" >
+        <div class="right2">All Rights Reserved, &copy; EventSpotter &nbsp;</div>
     </footer>
+
+    <script>
+        var mode_btn = document.getElementById("mode_btn")
+        mode_btn.onclick = function(){
+            document.body.classlist.toggle('dark')}
+        {% comment %} console.log(function()) {% endcomment %}
+    </script>
 
 </body>
 </html>

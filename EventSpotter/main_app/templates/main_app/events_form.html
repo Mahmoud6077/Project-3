@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+
+    main{
+        height: 100vh;
+    }
+    label
+    {
+     color: black;
+     font-size: 1.5em;
+     font-weight: bold;
+    }
+    body{
+        background-color:grey;
+       }
+</style>
+<h1 style="text-align: center;">Add an Event</h1>
+    <form action="" method="POST" enctype='multipart/form-data'>
+        {% csrf_token %}
+        <table>
+            {{ form.as_p }}
+        </table>
+        <input type="submit" value="Submit!" class="btn">
+    </form> 
+    
+<script>
+    const locationElement = document.getElementById('id_location')
+    M.FormSelect.init(locationElement)
+
+</script>
+
+{% endblock %}

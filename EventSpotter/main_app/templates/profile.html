@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+  .intro
+  {
+    margin: 50px;
+  }
+  main
+  {
+    height: 100vh;
+  }
+</style>
+<div class="intro">
+
+    <div class="profile-row">
+        <h1>Profile</h1>
+
+        <div class="profile-img">
+        </div>
+    </div>
+
+
+</div>
+<div style="padding: 10px;">Usermame: {{user.username}}</div>
+<div style="padding: 10px;">Email:{{user.email}}</div>
+<div style="padding: 10px;"> PhoneNumber:{{ user.phone}}</div>
+<a style="padding: 10px;" href="{% url 'change_password' %}"> Change Password</a>
+<hr>
+<div><h5>Booking History</h5>
+    <ul>
+      {% for ticket in tickets %}
+        <li>{{ ticket.event.name }} - {{ ticket.event.date }}</li>
+      {% empty %}
+        <li>No tickets found.</li>
+      {% endfor %}
+    </ul>
+</div>
+
+
+{% endblock %}

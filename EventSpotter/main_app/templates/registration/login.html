@@ -1,12 +1,30 @@
 {% extends 'base.html' %}
 {% block content %}
-
-<h1>Login Page</h1>
+<style>
+   input{
+    width: 200px;
+    border-radius: 15px;
+   }
+   main
+   {
+    height: 100vh;
+   }
+   label
+   {
+    color: black;
+    font-size: 1.5em;
+    font-weight: bold;
+   }
+   body{
+    background-color:grey;
+   }
+</style>
+<h1 style="text-align: center;">Login Page</h1>
 <form method="post" action="{% url 'login' %}">
     {%csrf_token %}
     {{ form.as_p }}
-    <input type="submit" class="btn" value="login">
-    <input type="hiddden" name="next" value="{{next}}">
+    <input type="submit"style='align-self: center;' class="btn" value="login">
+    <input type="hidden" name="next" value="{{next}}">
 
 
 </form>
