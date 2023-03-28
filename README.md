@@ -37,3 +37,8 @@ Improved search functionality using machine learning and natural language proces
 Contributors
 
 Mahmood Ibrahim (mebrahim6077@email.com)
+
+
+ERD:
+
+<img src="/EventSpotter/main_app/static/images/ERD.JPG">
